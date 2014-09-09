@@ -1,6 +1,6 @@
 <?php
 
-namespace common;
+namespace wenbin1989\yii2\curl;
 
 use Yii;
 use yii\base\Component;
