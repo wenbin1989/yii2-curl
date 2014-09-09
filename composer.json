@@ -1,0 +1,26 @@
+{
+    "name": "wenbin1989/yii2-curl",
+    "description": "cURL wrapper for yii2 framework",
+    "keywords": ["yii", "yii2", "extension", "curl"],
+    "homepage": "https://github.com/wenbin1989/yii2-curl",
+    "type": "yii2-extension",
+    "license": "MIT",
+    "support": {
+        "email": "wenbin1989@gmail.com",
+        "source": "https://github.com/wenbin1989/yii2-curl"
+    },
+    "authors": [
+        {
+            "name": "wenbin wang",
+            "email": "wenbin1989@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "wenbin1989\\yii2\\curl\\": ""
+        }
+    }
+}
