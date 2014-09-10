@@ -139,8 +139,9 @@ class Curl extends Component
      * @param string $requestBody request body
      * @param boolean $raw if response body contains JSON and should be decoded
      * @throws Exception if request failed
-     * @throws \yii\base\InvalidParamException
-     * @return mixed response
+     * @throws HttpException
+     * @return mixed if response http code is 404, return false; if http code >= 200 and < 300, return response body;
+     * throws HttpException for other http code.
      */
     protected function httpRequest($method, $url, $requestBody = null, $raw = false)
     {
@@ -184,7 +185,7 @@ class Curl extends Component
         $curl = curl_init($url);
         curl_setopt_array($curl, $options);
         if (curl_exec($curl) === false) {
-            throw new Exception('curl request failed: ' . curl_errno($curl));
+            throw new Exception('curl request failed: ' . curl_error($curl) , curl_errno($curl));
         }
 
         $responseCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
