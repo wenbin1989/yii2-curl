@@ -178,9 +178,10 @@ class Curl extends Component
             unset($options[CURLOPT_WRITEFUNCTION]);
         }
 
-        $profile = $method . ' ' . $url . '#' . md5(serialize($requestBody));
-        Yii::trace("Sending request: $url\n" . Json::encode($requestBody), __METHOD__);
-	Yii::beginProfile($profile, __METHOD__);
+        $bodyProfile = serialize($requestBody);
+        $profile = $method . ' ' . $url . '#' . md5($bodyProfile);
+        Yii::trace("Sending request: $url\n" . $bodyProfile, __METHOD__);
+        Yii::beginProfile($profile, __METHOD__);
 
         $curl = curl_init($url);
         curl_setopt_array($curl, $options);
